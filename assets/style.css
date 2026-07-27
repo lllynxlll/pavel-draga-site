@@ -210,6 +210,11 @@ ul.spark li::before{
 #form-status{ margin-top:14px; font-size:14px; }
 #form-status.ok{ color: #8fd19e; }
 #form-status.err{ color: #e08a8a; }
+.soft-alt{
+  text-align:center; margin-top:22px; font-size:13.5px; color:#7d7d8c;
+}
+.soft-alt a{ color:#8f8fa3; text-decoration:underline; }
+.soft-alt a:hover{ color: var(--gold-soft); }
 
 /* Testimonial */
 .quote{
