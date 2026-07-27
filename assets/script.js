@@ -1,4 +1,31 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // Cases carousel arrows
+  const carousel = document.getElementById("cases-carousel");
+  if (carousel) {
+    const wrap = carousel.closest(".cases-carousel-wrap");
+    const prevBtn = wrap.querySelector(".carousel-arrow.prev");
+    const nextBtn = wrap.querySelector(".carousel-arrow.next");
+    const scrollByCard = (dir) => {
+      const card = carousel.querySelector(".case-card");
+      const gap = 20;
+      const amount = (card ? card.getBoundingClientRect().width + gap : 300) * dir;
+      carousel.scrollBy({ left: amount, behavior: "smooth" });
+    };
+    prevBtn && prevBtn.addEventListener("click", () => scrollByCard(-1));
+    nextBtn && nextBtn.addEventListener("click", () => scrollByCard(1));
+  }
+
+  // Pricing tier CTA — prefill the lead form message with the chosen tier
+  document.querySelectorAll(".tier-cta").forEach((el) => {
+    el.addEventListener("click", () => {
+      const tier = el.getAttribute("data-tier");
+      const msg = document.getElementById("message");
+      if (msg && tier) {
+        msg.value = `Интересует: ${tier}`;
+      }
+    });
+  });
+
   const form = document.getElementById("lead-form");
   if (!form) return;
 
