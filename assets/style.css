@@ -1,7 +1,7 @@
 :root{
   --font:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Roboto,Arial,sans-serif;
   --bg:#0b0f1f; --bg2:#121833; --card:rgba(255,255,255,.045); --line:rgba(255,255,255,.09);
-  --text:#f2ead9; --dim:#b9b1a2; --gold:#d8b46a; --gold2:#f0d79a; --pain:#e8957e; --ok:#9fd1b0;
+  --text:#f2ead9; --dim:#f2ead9; --gold:#d8b46a; --gold2:#f0d79a; --pain:#e8957e; --ok:#9fd1b0;
   --r:18px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
@@ -166,3 +166,244 @@ footer.site a{color:var(--dim);margin-right:16px}
 .plate.love{border-color:rgba(232,149,126,.28);background:linear-gradient(160deg,rgba(232,149,126,.08),rgba(255,255,255,.03))}
 #love{text-align:left}
 .hl{color:#fff;font-weight:800;text-shadow:0 0 14px rgba(255,255,255,.35)}
+
+/* ================= СТИЛЬ ВИЗИТКИ «НОЧЬ - ГРОЗА - РАССВЕТ» ================= */
+:root{--bg:#0b0f1f;--bg2:#111845;--line:rgba(216,180,106,.22);--text:#f2ead9;--dim:#f2ead9;--gold:#d8b46a;--gold2:#f0d79a;--ok:#f0d79a;--pain:#e85a3c}
+body{background:
+  radial-gradient(120% 1400px at 50% 0%,#1d2a66 0%,rgba(29,42,102,0) 100%),
+  radial-gradient(100% 1600px at 50% 100%,rgba(240,200,120,.22),rgba(240,200,120,0) 100%),
+  linear-gradient(180deg,#0b0f1f 0%,#0d1330 45%,#141c48 80%,#18225a 100%)!important;
+  background-attachment:scroll!important;position:relative}
+/* звёзды по бокам */
+body::before{content:"";position:absolute;left:0;right:0;top:0;height:1100px;pointer-events:none;z-index:0;opacity:1;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 390 1100' preserveAspectRatio='none'%3E%3Cg fill='%23fff6dc'%3E%3Ccircle cx='14' cy='90' r='1.1'/%3E%3Ccircle cx='52' cy='150' r='.7'/%3E%3Ccircle cx='28' cy='240' r='1.3'/%3E%3Ccircle cx='70' cy='330' r='.7'/%3E%3Ccircle cx='12' cy='420' r='1'/%3E%3Ccircle cx='62' cy='520' r='.8'/%3E%3Ccircle cx='22' cy='640' r='1.1'/%3E%3Ccircle cx='48' cy='760' r='.7'/%3E%3Ccircle cx='18' cy='880' r='.9'/%3E%3Ccircle cx='376' cy='100' r='1.1'/%3E%3Ccircle cx='336' cy='170' r='.7'/%3E%3Ccircle cx='366' cy='270' r='1.3'/%3E%3Ccircle cx='322' cy='360' r='.7'/%3E%3Ccircle cx='380' cy='470' r='1'/%3E%3Ccircle cx='344' cy='580' r='.8'/%3E%3Ccircle cx='372' cy='700' r='1.1'/%3E%3Ccircle cx='330' cy='820' r='.7'/%3E%3Ccircle cx='362' cy='940' r='.9'/%3E%3C/g%3E%3Cg fill='%23f0d79a'%3E%3Ccircle cx='40' cy='200' r='.9'/%3E%3Ccircle cx='350' cy='230' r='.9'/%3E%3Ccircle cx='30' cy='560' r='.8'/%3E%3Ccircle cx='356' cy='640' r='.8'/%3E%3C/g%3E%3C/svg%3E") top center/100% 1100px no-repeat}
+body>*{position:relative;z-index:1}
+.sky{position:absolute!important;left:0;right:0;top:0;height:1100px;pointer-events:none;z-index:3!important;overflow:hidden}
+.tw{position:absolute;transform:translate(-50%,-50%) scale(.2);opacity:0;animation:tw 8s ease-in-out infinite}
+.tw svg{width:100%;height:100%;display:block}
+@keyframes tw{0%,70%,100%{opacity:0;transform:translate(-50%,-50%) scale(.2) rotate(0)}80%{opacity:1;transform:translate(-50%,-50%) scale(1) rotate(20deg)}90%{opacity:.15;transform:translate(-50%,-50%) scale(.5) rotate(35deg)}}
+@media (prefers-reduced-motion:reduce){.tw{animation:none;opacity:.8;transform:translate(-50%,-50%) scale(.8)}}
+
+/* шапка */
+header.site{background:rgba(11,15,31,.82)!important;border-bottom:1px solid rgba(216,180,106,.2)}
+
+/* секции: без полос, вместо границ - золотая линия с искрой, как на визитке */
+section,section.alt{background:transparent!important;border:0!important}
+section+section{position:relative}
+section+section::before{content:"";position:absolute;top:0;left:12%;right:12%;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(216,180,106,.6) 25%,#fff2c8 50%,rgba(216,180,106,.6) 75%,transparent);box-shadow:0 0 12px 1px rgba(240,215,154,.45)}
+section+section::after{content:"";position:absolute;top:-2px;left:46%;right:46%;height:5px;border-radius:50%;background:radial-gradient(ellipse,rgba(255,240,200,.85),transparent 70%);filter:blur(1px)}
+
+h1 .accent,h2 .accent,.accent{color:#f0d79a}
+.kicker{color:#d8b46a}
+.sub,.lead,.plate p,.perks li,.faq-a,.about p{color:#f2ead9}
+.trust{color:#e9e2d2}
+
+/* кнопки: главная - как Telegram на визитке, остальные - золотая рамка */
+.btn{background:rgba(27,39,102,.68);color:#fbe9bd;border:1.5px solid #f0d79a;box-shadow:none;
+  text-shadow:1.4px 0 0 #141a3a,-1.4px 0 0 #141a3a,0 1.4px 0 #141a3a,0 -1.4px 0 #141a3a,1px 1px 0 #141a3a,-1px 1px 0 #141a3a,1px -1px 0 #141a3a,-1px -1px 0 #141a3a,0 0 11px rgba(247,223,174,.6),0 0 22px rgba(247,223,174,.45),0 0 37px rgba(247,223,174,.35)}
+.btn.ghost{background:rgba(255,255,255,.05);color:#f6e2b0;border:1.5px solid #f0d79a;text-shadow:none}
+nav.main a.btn{background:rgba(11,15,31,.6);color:#f6e2b0;border:1.5px solid #f0d79a;text-shadow:none}
+
+/* стекло-карточки */
+.plate,.card,.faq-item{background:linear-gradient(180deg,rgba(29,42,102,.35),rgba(15,22,60,.35));border:1px solid rgba(216,180,106,.55);border-radius:16px}
+.faq-item{margin-bottom:10px;padding:0 16px;border-bottom:1px solid rgba(216,180,106,.55)}
+.plate h3,.card h3{color:#f2ead9}
+
+/* «Узнаёшь себя» - плашки на грозе, как на визитке */
+#pain .pain{position:relative;gap:12px;padding:12px;border-radius:16px;overflow:hidden;isolation:isolate;box-shadow:inset 0 0 40px rgba(0,0,0,.7)}
+#pain .pain::before{content:"";position:absolute;inset:0;z-index:-1;background:url(storm.jpg) 39% center/cover no-repeat;filter:brightness(.53);transform:rotate(26deg) scale(1.578)}
+#pain .pain li{background:radial-gradient(130% 120% at 50% 120%,rgba(232,90,60,.42),rgba(232,90,60,.084) 55%,rgba(10,10,24,.86));
+  border:1px solid hsla(209,70%,62%,.52);box-shadow:0 0 14px hsla(209,70%,60%,.22);backdrop-filter:blur(2px);-webkit-backdrop-filter:blur(2px);
+  padding:14px 16px;text-shadow:0 1px 4.2px rgba(0,0,0,.5)}
+#pain .pain li::before{display:none}
+#pain .pain li b{display:block;color:#fff;font-size:17px;margin-bottom:4px}
+#pain .pain li span{display:block;color:#f2ead9;font-size:15px;line-height:1.45}
+.verdict span{color:#f0d79a}
+
+/* «Как проходит сессия» - рассвет, как блок «Как я работаю» на визитке */
+#method .method{position:relative;padding:14px;border-radius:18px;overflow:hidden;isolation:isolate;border:1.5px solid #d8b46a}
+#method .method::before{content:"";position:absolute;inset:0;z-index:-1;background:url(dawn.jpg) center/cover no-repeat}
+#method .method .plate{background:rgba(14,20,58,.66);border:1px solid rgba(240,215,154,.85);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);text-shadow:0 1px 4px rgba(0,0,0,.9)}
+#method .method .plate::before{color:#f0d79a}
+
+/* лестница предложений */
+.step .num b{background:#111845;border:1.5px solid rgba(216,180,106,.7);color:#f0d79a}
+.step .num i{background:linear-gradient(rgba(240,215,154,.7),rgba(240,215,154,.15))}
+.step.s3 .card,.step.s4 .card,.step.s1 .card{background:radial-gradient(70% 300px at 50% -5%,rgba(255,236,190,.42),rgba(255,220,150,.1) 55%,rgba(255,220,150,0) 75%),linear-gradient(180deg,#1b2766,#111845);
+  border:1.5px solid rgba(240,215,154,.9);box-shadow:0 0 26px rgba(255,210,130,.2)}
+.step.s4 .card{box-shadow:0 0 34px rgba(255,210,130,.3)}
+.step.s4 .num b{background:#111845;border:2px solid #f0d79a;color:#f0d79a;box-shadow:0 0 16px rgba(255,210,130,.45)}
+.promise b{color:#f0d79a}
+.perks li::before{color:#f0d79a}
+.honest{background:linear-gradient(180deg,rgba(29,42,102,.4),rgba(15,22,60,.4));border-left:2px solid #f0d79a}
+.guarantee{background:rgba(14,20,58,.6);border:1px solid rgba(240,215,154,.7)}
+
+/* аватар у призывов */
+.me2{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.me2 img{width:52px;height:52px;border-radius:50%;object-fit:cover;border:2px solid #d8b46a;flex:none}
+.me2 b{display:block;font-size:16px;line-height:1.2;color:#f2ead9}
+.me2 span{display:block;font-size:13px;line-height:1.3;color:#f0d79a}
+
+/* форма записи - блок как «Написать мне» на визитке */
+#form .form-wrap{padding:28px 18px;border-radius:20px;background:radial-gradient(70% 320px at 50% -5%,rgba(255,236,190,.45),rgba(255,220,150,.1) 55%,rgba(255,220,150,0) 75%),linear-gradient(180deg,#1b2766,#111845);border:1.5px solid rgba(240,215,154,.9);box-shadow:0 0 26px rgba(255,210,130,.2)}
+.field input,.field textarea,.field select{background:rgba(11,15,31,.45);border:1px solid rgba(216,180,106,.45)}
+.field select option{background:#111845}
+.quote{color:#f2ead9}
+.about img{border:2px solid #d8b46a}
+footer.site{border-top:1px solid rgba(216,180,106,.22)}
+.plate .ic{line-height:0}
+/* логотип в углу */
+.corner{position:absolute;top:74px;right:10px;width:42px;height:42px;filter:brightness(.7) saturate(.65);z-index:4}
+
+/* ===== без картинок: путь от тьмы к свету одним градиентом ===== */
+body{background:#0b0f1f!important}
+section.hero{background:radial-gradient(120% 70% at 50% 0%,#1d2a66 0%,rgba(29,42,102,0) 70%),linear-gradient(180deg,#0b0f1f,#090c1b)!important}
+#pain{background:linear-gradient(180deg,#090c1b,#06081280 0%,#060812)!important}
+#why{background:linear-gradient(180deg,#060812,#090c1d)!important}
+#result{background:linear-gradient(180deg,#090c1d,#0c1129)!important}
+#love{background:linear-gradient(180deg,#0c1129,#0f1533)!important}
+#path{background:linear-gradient(180deg,#0f1533,#131b42)!important}
+#method{background:linear-gradient(180deg,#131b42,#16204d)!important}
+#reviews{background:linear-gradient(180deg,#16204d,#192456)!important}
+#about{background:linear-gradient(180deg,#192456,#1b285e)!important}
+#faq{background:linear-gradient(180deg,#1b285e,#1d2a63)!important}
+#form{background:radial-gradient(90% 60% at 50% 100%,rgba(255,226,165,.22),rgba(255,226,165,0) 75%),linear-gradient(180deg,#1d2a63,#1f2d68)!important}
+footer.site{background:#1f2d68}
+/* боли - во тьме: тёмное стекло, без картинки грозы */
+#pain .pain{padding:0;box-shadow:none;overflow:visible}
+#pain .pain::before{display:none!important}
+#pain .pain li{background:linear-gradient(180deg,rgba(14,18,40,.9),rgba(8,10,24,.9));border:1px solid rgba(120,140,200,.25);box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none}
+#pain .pain li b{color:#e8e6ef}
+#pain .pain li span{color:#aab0c8}
+/* сессия - без картинки рассвета, просто стекло */
+#method .method{padding:0;border:0;overflow:visible}
+#method .method::before{display:none!important}
+#method .method .plate{background:linear-gradient(180deg,rgba(29,42,102,.35),rgba(15,22,60,.35));border:1px solid rgba(216,180,106,.55);backdrop-filter:none;text-shadow:none}
+/* где зову к себе - свет: блоки со светом рассвета (уже стоят), форма светлее всех */
+#form .form-wrap{box-shadow:0 0 40px rgba(255,210,130,.28)}
+.guarantee{align-items:flex-start}.guarantee p{font-size:16px;line-height:1.55}.guarantee .gt{display:block;font-size:18px;color:#f0d79a;margin-bottom:4px}
+.step.s1 .top{justify-content:center;flex-direction:column;align-items:center;text-align:center}.step.s1 .promise{text-align:center}
+.guarantee{display:block!important;padding:16px 16px 14px}.guarantee>.ic{float:left;margin:0 10px 2px 0;line-height:0}.guarantee .gt{display:block;line-height:30px;margin-bottom:6px}.guarantee p{width:auto;max-width:none}
+.bridge.big{font-size:17px;font-style:normal;color:#f2ead9;margin:4px 0 26px}.bridge.big::before{content:"↓ ";color:#f0d79a}
+.price.sm{font-size:17px}
+.motto-heart{display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px;margin:6px 0 22px}
+.motto-heart img{width:76px;height:76px;filter:drop-shadow(0 0 14px rgba(255,210,130,.35))}
+.motto-heart .mh-t,.motto-heart .mh-b{font-size:16px;font-style:italic;color:#f0d79a;letter-spacing:.01em;text-wrap:balance}
+@font-face{font-family:"Cormorant Garamond";font-style:italic;font-weight:600;font-display:swap;src:url(fonts/cormorant-600-italic.woff2) format("woff2")}
+.motto-heart{flex-direction:row!important;align-items:center!important;text-align:left!important;gap:16px!important;margin:6px 0 20px!important}
+.motto-heart img{width:84px!important;height:84px!important;flex:none}
+.motto-heart .mh{font-family:"Cormorant Garamond",Georgia,serif;font-style:italic;font-weight:600;font-size:19px;line-height:1.05;color:#f0d79a;white-space:nowrap}
+.hero .container>.motto-heart{grid-column:1/-1;order:-5;justify-content:center;margin:0 0 6px!important}
+
+/* фото выше, без таблички */
+.hero-visual{margin-top:0}
+@media (max-width:860px){.hero-visual{margin-top:4px}}
+/* «Я за любовь» в блоке записи */
+.say-wrap{text-align:center;margin:6px 0 22px}
+.say.say-end{position:relative;left:auto;top:auto;display:inline-block;white-space:normal;transform:rotate(-2deg);padding:12px 20px 14px}
+.say.say-end span,.say.say-end b{font-size:22px}
+.say.say-end::after{display:none}
+
+/* девиз в верхней шапке вместо имени */
+body.home .brand img{width:40px;height:40px}
+.brand .brand-motto{font-family:"Cormorant Garamond",Georgia,serif;font-style:italic;font-weight:600;font-size:15px;line-height:1.05;color:#f0d79a;white-space:nowrap}
+
+/* печать-сердце с лучами и плашка-девиз на фото */
+body.home header.site .brand{display:none}
+@media (max-width:760px){body.home header.site{display:none}}
+.hero-visual{margin-top:110px!important}
+.hero{overflow-x:clip}
+.seal{position:absolute;left:-22px;top:-62px;width:144px;height:144px;z-index:4;transform:rotate(-11deg)}
+.seal canvas{position:absolute;left:50%;top:50%;width:400%;height:400%;transform:translate(-50%,-50%);pointer-events:none;mix-blend-mode:screen;z-index:2}
+.seal img{position:relative;width:100%;height:100%;display:block;filter:drop-shadow(0 8px 14px rgba(0,0,0,.6))}
+.speech{position:absolute;left:122px;right:-8px;top:-50px;z-index:3;padding:9px 14px 10px;border-radius:16px;background:rgba(11,15,31,.55);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border:1.5px solid rgba(240,215,154,.8);box-shadow:0 10px 28px rgba(0,0,0,.45);transform:rotate(-3deg);
+  font-family:"Cormorant Garamond",Georgia,serif;font-style:italic;font-weight:600;font-size:16px;line-height:1.1;color:#f0d79a;white-space:nowrap;text-align:center}
+.speech::after{content:"";position:absolute;left:50%;bottom:-9px;width:16px;height:16px;background:rgba(11,15,31,.55);border-right:1.5px solid rgba(240,215,154,.8);border-bottom:1.5px solid rgba(240,215,154,.8);transform:rotate(45deg);clip-path:polygon(100% 0,100% 100%,0 100%)}
+
+/* «Что меняется» - по редактору */
+#result .grid-3{gap:25px}
+#result .plate{text-align:center;padding:32px;border-radius:13px;
+  background:radial-gradient(80% 140px at 50% -10%,rgba(255,236,190,.23),rgba(255,220,150,0) 75%),linear-gradient(180deg,rgba(29,42,102,.77),rgba(15,22,60,.77));
+  border:1px solid rgba(216,180,106,.9);box-shadow:0 0 25.6px rgba(255,210,130,.21)}
+#result .plate .ic{display:flex;justify-content:center;margin-bottom:10px}
+#result .plate .ic svg{width:35px;height:35px}
+#result .plate h3{font-size:20px;color:#f0d79a;margin:0 0 8px}
+#result .plate p{font-size:16px}
+@media (max-width:760px){#result h2{font-size:30px}}
+
+/* ===== Фон: ночь там, где боль, сирень там, где лучше ===== */
+:root{--lilac:59,45,102}
+body{background:#0a0d20!important}
+:root{--l0:59;--l1:45;--l2:102}
+section.hero{background:radial-gradient(120% 70% at 50% 0%,#1d2a66 0%,rgba(29,42,102,0) 70%),linear-gradient(180deg,rgb(calc(10 + (var(--l0) - 10) * 0),calc(13 + (var(--l1) - 13) * 0),calc(32 + (var(--l2) - 32) * 0)),rgb(calc(10 + (var(--l0) - 10) * 0),calc(13 + (var(--l1) - 13) * 0),calc(32 + (var(--l2) - 32) * 0)))!important}
+section#pain{background:linear-gradient(180deg,rgb(calc(10 + (var(--l0) - 10) * 0),calc(13 + (var(--l1) - 13) * 0),calc(32 + (var(--l2) - 32) * 0)),rgb(calc(10 + (var(--l0) - 10) * 0),calc(13 + (var(--l1) - 13) * 0),calc(32 + (var(--l2) - 32) * 0)))!important}
+section#why{background:linear-gradient(180deg,rgb(calc(10 + (var(--l0) - 10) * 0),calc(13 + (var(--l1) - 13) * 0),calc(32 + (var(--l2) - 32) * 0)),rgb(calc(10 + (var(--l0) - 10) * 0.1),calc(13 + (var(--l1) - 13) * 0.1),calc(32 + (var(--l2) - 32) * 0.1)))!important}
+section#result{background:linear-gradient(180deg,rgb(calc(10 + (var(--l0) - 10) * 0.1),calc(13 + (var(--l1) - 13) * 0.1),calc(32 + (var(--l2) - 32) * 0.1)),rgb(calc(10 + (var(--l0) - 10) * 0.75),calc(13 + (var(--l1) - 13) * 0.75),calc(32 + (var(--l2) - 32) * 0.75)))!important}
+section#love{background:linear-gradient(180deg,rgb(calc(10 + (var(--l0) - 10) * 0.75),calc(13 + (var(--l1) - 13) * 0.75),calc(32 + (var(--l2) - 32) * 0.75)),rgb(calc(10 + (var(--l0) - 10) * 0.85),calc(13 + (var(--l1) - 13) * 0.85),calc(32 + (var(--l2) - 32) * 0.85)))!important}
+section#path{background:linear-gradient(180deg,rgb(calc(10 + (var(--l0) - 10) * 0.85),calc(13 + (var(--l1) - 13) * 0.85),calc(32 + (var(--l2) - 32) * 0.85)),rgb(calc(10 + (var(--l0) - 10) * 0.9),calc(13 + (var(--l1) - 13) * 0.9),calc(32 + (var(--l2) - 32) * 0.9)))!important}
+section#method{background:linear-gradient(180deg,rgb(calc(10 + (var(--l0) - 10) * 0.9),calc(13 + (var(--l1) - 13) * 0.9),calc(32 + (var(--l2) - 32) * 0.9)),rgb(calc(10 + (var(--l0) - 10) * 0.8),calc(13 + (var(--l1) - 13) * 0.8),calc(32 + (var(--l2) - 32) * 0.8)))!important}
+section#reviews{background:linear-gradient(180deg,rgb(calc(10 + (var(--l0) - 10) * 0.8),calc(13 + (var(--l1) - 13) * 0.8),calc(32 + (var(--l2) - 32) * 0.8)),rgb(calc(10 + (var(--l0) - 10) * 1.0),calc(13 + (var(--l1) - 13) * 1.0),calc(32 + (var(--l2) - 32) * 1.0)))!important}
+section#about{background:linear-gradient(180deg,rgb(calc(10 + (var(--l0) - 10) * 1.0),calc(13 + (var(--l1) - 13) * 1.0),calc(32 + (var(--l2) - 32) * 1.0)),rgb(calc(10 + (var(--l0) - 10) * 0.35),calc(13 + (var(--l1) - 13) * 0.35),calc(32 + (var(--l2) - 32) * 0.35)))!important}
+section#faq{background:linear-gradient(180deg,rgb(calc(10 + (var(--l0) - 10) * 0.35),calc(13 + (var(--l1) - 13) * 0.35),calc(32 + (var(--l2) - 32) * 0.35)),rgb(calc(10 + (var(--l0) - 10) * 0.55),calc(13 + (var(--l1) - 13) * 0.55),calc(32 + (var(--l2) - 32) * 0.55)))!important}
+section#form{background:linear-gradient(180deg,rgb(calc(10 + (var(--l0) - 10) * 0.55),calc(13 + (var(--l1) - 13) * 0.55),calc(32 + (var(--l2) - 32) * 0.55)),rgb(calc(10 + (var(--l0) - 10) * 1.0),calc(13 + (var(--l1) - 13) * 1.0),calc(32 + (var(--l2) - 32) * 1.0)))!important}
+/* плашки затемнены на 90% */
+.plate,.card,.faq-item,.honest,.guarantee{background:rgba(10,13,32,.9)!important}
+#result .plate{background:radial-gradient(80% 140px at 50% -10%,rgba(255,236,190,.23),rgba(255,220,150,0) 75%),rgba(10,13,32,.9)!important}
+.step.s1 .card,.step.s3 .card,.step.s4 .card{background:radial-gradient(70% 300px at 50% -5%,rgba(255,236,190,.42),rgba(255,220,150,.1) 55%,rgba(255,220,150,0) 75%),rgba(10,13,32,.9)!important}
+#method .method .plate{background:rgba(10,13,32,.9)!important}
+
+/* текст белый, заголовки плашек золотые - без разноцветья */
+.plate h3,.card h3,#pain .pain li b{color:#f0d79a!important}
+.plate p,.card p,.card li,.faq-a,.sub,.lead,.about p,.honest,.perks li,#pain .pain li span{color:#f2ead9!important}
+
+/* кнопки: обводка букв тоньше и светлее */
+.btn{text-shadow:.6px 0 0 #2b3778,-.6px 0 0 #2b3778,0 .6px 0 #2b3778,0 -.6px 0 #2b3778,0 0 9px rgba(247,223,174,.45)}
+.btn.ghost,nav.main a.btn{text-shadow:none}
+/* «Как проходит сессия»: колонки одинаковой ширины */
+.method{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media (max-width:860px){.method{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.method{grid-template-columns:minmax(0,1fr)}}
+/* вопросы золотые, ответы белые */
+.faq-q{color:#f0d79a}
+.faq-a{color:#f2ead9!important}
+
+/* звёзды в тёмных разделах (ночь) */
+section.hero{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 390 1100' preserveAspectRatio='none'%3E%3Cg fill='%23fff6dc'%3E%3Ccircle cx='14' cy='90' r='1.1'/%3E%3Ccircle cx='52' cy='150' r='.7'/%3E%3Ccircle cx='28' cy='240' r='1.3'/%3E%3Ccircle cx='70' cy='330' r='.7'/%3E%3Ccircle cx='12' cy='420' r='1'/%3E%3Ccircle cx='62' cy='520' r='.8'/%3E%3Ccircle cx='22' cy='640' r='1.1'/%3E%3Ccircle cx='48' cy='760' r='.7'/%3E%3Ccircle cx='18' cy='880' r='.9'/%3E%3Ccircle cx='376' cy='100' r='1.1'/%3E%3Ccircle cx='336' cy='170' r='.7'/%3E%3Ccircle cx='366' cy='270' r='1.3'/%3E%3Ccircle cx='322' cy='360' r='.7'/%3E%3Ccircle cx='380' cy='470' r='1'/%3E%3Ccircle cx='344' cy='580' r='.8'/%3E%3Ccircle cx='372' cy='700' r='1.1'/%3E%3Ccircle cx='330' cy='820' r='.7'/%3E%3Ccircle cx='362' cy='940' r='.9'/%3E%3C/g%3E%3Cg fill='%23f0d79a'%3E%3Ccircle cx='40' cy='200' r='.9'/%3E%3Ccircle cx='350' cy='230' r='.9'/%3E%3Ccircle cx='30' cy='560' r='.8'/%3E%3Ccircle cx='356' cy='640' r='.8'/%3E%3C/g%3E%3C/svg%3E") top left/390px 1100px repeat,radial-gradient(120% 70% at 50% 0%,#1d2a66 0%,rgba(29,42,102,0) 70%),linear-gradient(180deg,rgb(calc(10 + (var(--l0) - 10) * 0),calc(13 + (var(--l1) - 13) * 0),calc(32 + (var(--l2) - 32) * 0)),rgb(calc(10 + (var(--l0) - 10) * 0),calc(13 + (var(--l1) - 13) * 0),calc(32 + (var(--l2) - 32) * 0)))!important}
+section#pain{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 390 1100' preserveAspectRatio='none'%3E%3Cg fill='%23fff6dc'%3E%3Ccircle cx='14' cy='90' r='1.1'/%3E%3Ccircle cx='52' cy='150' r='.7'/%3E%3Ccircle cx='28' cy='240' r='1.3'/%3E%3Ccircle cx='70' cy='330' r='.7'/%3E%3Ccircle cx='12' cy='420' r='1'/%3E%3Ccircle cx='62' cy='520' r='.8'/%3E%3Ccircle cx='22' cy='640' r='1.1'/%3E%3Ccircle cx='48' cy='760' r='.7'/%3E%3Ccircle cx='18' cy='880' r='.9'/%3E%3Ccircle cx='376' cy='100' r='1.1'/%3E%3Ccircle cx='336' cy='170' r='.7'/%3E%3Ccircle cx='366' cy='270' r='1.3'/%3E%3Ccircle cx='322' cy='360' r='.7'/%3E%3Ccircle cx='380' cy='470' r='1'/%3E%3Ccircle cx='344' cy='580' r='.8'/%3E%3Ccircle cx='372' cy='700' r='1.1'/%3E%3Ccircle cx='330' cy='820' r='.7'/%3E%3Ccircle cx='362' cy='940' r='.9'/%3E%3C/g%3E%3Cg fill='%23f0d79a'%3E%3Ccircle cx='40' cy='200' r='.9'/%3E%3Ccircle cx='350' cy='230' r='.9'/%3E%3Ccircle cx='30' cy='560' r='.8'/%3E%3Ccircle cx='356' cy='640' r='.8'/%3E%3C/g%3E%3C/svg%3E") top left/390px 1100px repeat,linear-gradient(180deg,rgb(calc(10 + (var(--l0) - 10) * 0),calc(13 + (var(--l1) - 13) * 0),calc(32 + (var(--l2) - 32) * 0)),rgb(calc(10 + (var(--l0) - 10) * 0),calc(13 + (var(--l1) - 13) * 0),calc(32 + (var(--l2) - 32) * 0)))!important}
+section#why{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 390 1100' preserveAspectRatio='none'%3E%3Cg fill='%23fff6dc'%3E%3Ccircle cx='14' cy='90' r='1.1'/%3E%3Ccircle cx='52' cy='150' r='.7'/%3E%3Ccircle cx='28' cy='240' r='1.3'/%3E%3Ccircle cx='70' cy='330' r='.7'/%3E%3Ccircle cx='12' cy='420' r='1'/%3E%3Ccircle cx='62' cy='520' r='.8'/%3E%3Ccircle cx='22' cy='640' r='1.1'/%3E%3Ccircle cx='48' cy='760' r='.7'/%3E%3Ccircle cx='18' cy='880' r='.9'/%3E%3Ccircle cx='376' cy='100' r='1.1'/%3E%3Ccircle cx='336' cy='170' r='.7'/%3E%3Ccircle cx='366' cy='270' r='1.3'/%3E%3Ccircle cx='322' cy='360' r='.7'/%3E%3Ccircle cx='380' cy='470' r='1'/%3E%3Ccircle cx='344' cy='580' r='.8'/%3E%3Ccircle cx='372' cy='700' r='1.1'/%3E%3Ccircle cx='330' cy='820' r='.7'/%3E%3Ccircle cx='362' cy='940' r='.9'/%3E%3C/g%3E%3Cg fill='%23f0d79a'%3E%3Ccircle cx='40' cy='200' r='.9'/%3E%3Ccircle cx='350' cy='230' r='.9'/%3E%3Ccircle cx='30' cy='560' r='.8'/%3E%3Ccircle cx='356' cy='640' r='.8'/%3E%3C/g%3E%3C/svg%3E") top left/390px 1100px repeat,linear-gradient(180deg,rgb(calc(10 + (var(--l0) - 10) * 0),calc(13 + (var(--l1) - 13) * 0),calc(32 + (var(--l2) - 32) * 0)),rgb(calc(10 + (var(--l0) - 10) * 0.1),calc(13 + (var(--l1) - 13) * 0.1),calc(32 + (var(--l2) - 32) * 0.1)))!important}
+section#about{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 390 1100' preserveAspectRatio='none'%3E%3Cg fill='%23fff6dc'%3E%3Ccircle cx='14' cy='90' r='1.1'/%3E%3Ccircle cx='52' cy='150' r='.7'/%3E%3Ccircle cx='28' cy='240' r='1.3'/%3E%3Ccircle cx='70' cy='330' r='.7'/%3E%3Ccircle cx='12' cy='420' r='1'/%3E%3Ccircle cx='62' cy='520' r='.8'/%3E%3Ccircle cx='22' cy='640' r='1.1'/%3E%3Ccircle cx='48' cy='760' r='.7'/%3E%3Ccircle cx='18' cy='880' r='.9'/%3E%3Ccircle cx='376' cy='100' r='1.1'/%3E%3Ccircle cx='336' cy='170' r='.7'/%3E%3Ccircle cx='366' cy='270' r='1.3'/%3E%3Ccircle cx='322' cy='360' r='.7'/%3E%3Ccircle cx='380' cy='470' r='1'/%3E%3Ccircle cx='344' cy='580' r='.8'/%3E%3Ccircle cx='372' cy='700' r='1.1'/%3E%3Ccircle cx='330' cy='820' r='.7'/%3E%3Ccircle cx='362' cy='940' r='.9'/%3E%3C/g%3E%3Cg fill='%23f0d79a'%3E%3Ccircle cx='40' cy='200' r='.9'/%3E%3Ccircle cx='350' cy='230' r='.9'/%3E%3Ccircle cx='30' cy='560' r='.8'/%3E%3Ccircle cx='356' cy='640' r='.8'/%3E%3C/g%3E%3C/svg%3E") top left/390px 1100px repeat,linear-gradient(180deg,rgb(calc(10 + (var(--l0) - 10) * 1.0),calc(13 + (var(--l1) - 13) * 1.0),calc(32 + (var(--l2) - 32) * 1.0)),rgb(calc(10 + (var(--l0) - 10) * 0.35),calc(13 + (var(--l1) - 13) * 0.35),calc(32 + (var(--l2) - 32) * 0.35)))!important}
+
+/* «Я за любовь»: солнце на фоне за плашками */
+#love{position:relative;overflow:hidden}
+#love .grid-3{position:relative;isolation:isolate}
+#love .grid-3::before{content:"";position:absolute;z-index:-1;left:66.7%;top:50%;width:1000px;height:1000px;transform:translate(-50%,-50%);pointer-events:none;mix-blend-mode:screen;
+  background:radial-gradient(closest-side,rgba(255,224,160,.81) 0%,rgba(255,206,110,.71) 14%,rgba(255,204,107,.405) 32%,rgba(255,190,100,.144) 55%,rgba(255,190,100,0) 80%);filter:blur(50px)}
+@media (max-width:700px){#love .grid-3::before{left:50%;top:66%;width:760px;height:760px;filter:blur(38px)}}
+
+/* второе солнце на стыке «Как проходит сессия» и «Отзывы» */
+#method,#reviews{overflow:hidden;isolation:isolate}
+.sun2{position:absolute;z-index:-1;left:73%;width:1000px;height:1000px;transform:translate(-50%,-50%);pointer-events:none;mix-blend-mode:screen;filter:blur(50px);
+  background:radial-gradient(closest-side,rgba(255,224,160,.81) 0%,rgba(255,206,110,.71) 14%,rgba(255,204,107,.405) 32%,rgba(255,190,100,.144) 55%,rgba(255,190,100,0) 80%)}
+.sun2-method{top:100%}
+.sun2-reviews{top:0}
+@media (max-width:700px){.sun2{left:50%;width:760px;height:760px;filter:blur(38px)}}
+
+/* «Обо мне»: рассвет над морем на фоне, 20%, мягкие края */
+#about{isolation:isolate;overflow:hidden}
+.about-sky{position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.25;filter:blur(24px);background:url(about-sky.jpg) center/cover no-repeat;
+  -webkit-mask-image:linear-gradient(180deg,transparent 0%,#000 22%,#000 78%,transparent 100%),linear-gradient(90deg,transparent 0%,#000 15%,#000 85%,transparent 100%);-webkit-mask-composite:source-in;
+  mask-image:linear-gradient(180deg,transparent 0%,#000 22%,#000 78%,transparent 100%),linear-gradient(90deg,transparent 0%,#000 15%,#000 85%,transparent 100%);mask-composite:intersect}
+
+/* рассвет в «Обо мне» - на всю ширину, без боковых краёв */
+.about-sky{inset:0 -80px;-webkit-mask-image:linear-gradient(180deg,transparent 0%,#000 22%,#000 78%,transparent 100%);mask-image:linear-gradient(180deg,transparent 0%,#000 22%,#000 78%,transparent 100%)}
+
+/* строка под «Что меняется»: подложка прозрачная, тёмная на 20% */
+#result .honest{background:rgba(10,13,32,.2)!important;font-weight:500;font-size:119%;line-height:1.5}
+
+/* печать: готовый логотип с лучами из файла (как сохранили), без живой анимации */
+.seal canvas{display:none}
+.seal img{position:absolute;left:50%;top:50%;width:197.7%;height:197.7%;max-width:none;transform:translate(-50%,-50%);filter:none}
+
+/* «Вот что ты получишь:» - как заголовки плашек */
+#result .sub .get{display:inline-block;margin-top:6px;font-size:20px;font-weight:700;line-height:1.25;color:#f0d79a}
